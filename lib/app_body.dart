@@ -62,8 +62,22 @@ class _AppBodyState extends State<AppBody> {
       children: [buttonLeft, buttonRight],
     );
 
+
+
+    var imageBox = InkWell(
+      child: _images[index],
+      onTap: () {
+        print('Image clicked');
+        SnackBar snackBar = SnackBar(
+          content: Text('你點擊了圖片${index + 1}'),
+        );
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      },
+    );
+
     var column = Column(
-      children: [_images[index], row],
+      children: [imageBox, row],
     );
 
     var container = Container(
